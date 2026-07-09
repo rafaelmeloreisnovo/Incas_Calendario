@@ -1,0 +1,37 @@
+name: "Research Proposal"
+description: "Propose a new astronomical site, geometric analysis, or RAFAELIA synthesis."
+labels: ["research", "proposal"]
+assignees: ["rafaelmeloreisnovo"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: "Research title"
+      placeholder: "Stonehenge solstice alignment as LC resonant system"
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: "Domain"
+      options:
+        - "Archaeoastronomy"
+        - "Sacred Geometry"
+        - "Electromagnetic Resonance"
+        - "RAFAELIA Synthesis"
+        - "Calendar Systems"
+        - "Other"
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: "Hypothesis"
+      placeholder: "We hypothesize that..."
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: "References"
+      placeholder: "BibTeX or DOI citations..."

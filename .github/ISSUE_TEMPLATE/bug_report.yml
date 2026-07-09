@@ -1,0 +1,36 @@
+name: "Bug Report / Calculation Error"
+description: "Report an error in mathematical formulas, astronomical constants, or document content."
+labels: ["bug", "triage"]
+assignees: ["rafaelmeloreisnovo"]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: "One-line summary"
+      placeholder: "Incorrect azimuth formula for southern hemisphere latitudes"
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: "Describe the error"
+      placeholder: "The formula on line X gives incorrect results because..."
+    validations:
+      required: true
+  - type: input
+    id: document
+    attributes:
+      label: "Affected document"
+      placeholder: "docs/espiritual-matematica-viva.md"
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: "Proposed correction (if known)"
+      placeholder: "The correct formula is..."
+  - type: input
+    id: source
+    attributes:
+      label: "Source / reference"
+      placeholder: "Meeus, J. (1998). Astronomical Algorithms. p. 93"

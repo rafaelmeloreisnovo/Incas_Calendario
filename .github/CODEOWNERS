@@ -1,0 +1,6 @@
+# CODEOWNERS — GEOMETRIA_SOLAR_Maia_Inca
+# All changes require review by the primary researcher.
+
+*                       @rafaelmeloreisnovo
+docs/                   @rafaelmeloreisnovo
+.github/                @rafaelmeloreisnovo
