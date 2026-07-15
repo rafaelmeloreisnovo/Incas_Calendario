@@ -1,0 +1,312 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-07-15",
+  "evidence_states": [
+    "VERIFIED",
+    "PARTIAL",
+    "HYPOTHESIS",
+    "TOKEN_VAZIO",
+    "CONTRADICTION",
+    "PHILOSOPHICAL"
+  ],
+  "attention_states": [
+    "CORE",
+    "ACTIVE",
+    "LATENT",
+    "FORGOTTEN",
+    "UNDERSERVED",
+    "IGNORED",
+    "TOKEN_VAZIO"
+  ],
+  "relation_types": [
+    "COEXISTS_IN_CORPUS",
+    "COMPARES_WITH",
+    "CONTRASTS",
+    "SHARES_OBSERVABLE",
+    "REQUIRES_SOURCE",
+    "REQUIRES_UNCERTAINTY",
+    "PROVIDES_CONTEXT"
+  ],
+  "records": [
+    {
+      "id": "CAL-MAYA-TZOLKIN-260",
+      "place": "Mesoamerica",
+      "culture": "Maya",
+      "cycle_name": "Tzolkin",
+      "calendar_type": "ritual-count",
+      "period": {
+        "value": 260,
+        "unit": "day",
+        "kind": "cycle"
+      },
+      "observable": ["counted-day sequence"],
+      "method": "13 x 20 arithmetic structure as documented in the repository",
+      "geometry": ["cyclic product structure"],
+      "uncertainty": {
+        "status": "TOKEN_VAZIO",
+        "note": "Historical interpretation and source uncertainty require a dedicated bibliography."
+      },
+      "evidence_state": "VERIFIED",
+      "attention_state": "ACTIVE",
+      "source_refs": [
+        "rafaelmeloreisnovo/GEOMETRIA_SOLAR_Maia_Inca:README.md"
+      ],
+      "notes": "The arithmetic period is documented; broader interpretations remain source-bounded."
+    },
+    {
+      "id": "CAL-MAYA-VENUS-5X8",
+      "place": "Mesoamerica",
+      "culture": "Maya",
+      "cycle_name": "Venus pentagram relation",
+      "calendar_type": "planetary-synodic",
+      "period": {
+        "value": 8,
+        "unit": "year",
+        "kind": "approximate-five-synodic-cycle"
+      },
+      "observable": ["Venus synodic appearances"],
+      "method": "Five-cycle to eight-year relation documented in the repository overview",
+      "geometry": ["72-degree pentagonal relation"],
+      "uncertainty": {
+        "status": "UNDERSERVED",
+        "note": "Exact period convention, epoch and accumulated drift need explicit calculation."
+      },
+      "evidence_state": "PARTIAL",
+      "attention_state": "UNDERSERVED",
+      "source_refs": [
+        "rafaelmeloreisnovo/GEOMETRIA_SOLAR_Maia_Inca:README.md"
+      ],
+      "notes": "Do not treat the geometric representation as proof of a universal mechanism."
+    },
+    {
+      "id": "CAL-INCA-SOLAR-ALIGNMENT",
+      "place": "Andes",
+      "culture": "Inca",
+      "cycle_name": "Solar architectural alignment",
+      "calendar_type": "solar-architectural",
+      "period": {
+        "value": 1,
+        "unit": "year",
+        "kind": "annual-reference"
+      },
+      "observable": ["solar azimuth", "noon altitude", "seasonal shadow"],
+      "method": "Site orientation and solar-position equations documented in the repository",
+      "geometry": ["azimuth", "altitude", "axis orientation"],
+      "uncertainty": {
+        "status": "UNDERSERVED",
+        "note": "Coordinates, horizon altitude, restoration and instrument tolerance must be attached per site."
+      },
+      "evidence_state": "PARTIAL",
+      "attention_state": "CORE",
+      "source_refs": [
+        "rafaelmeloreisnovo/GEOMETRIA_SOLAR_Maia_Inca:README.md",
+        "rafaelmeloreisnovo/GEOMETRIA_SOLAR_Maia_Inca:docs/incas.md"
+      ],
+      "notes": "The record is a research class; each archaeological site requires its own measurement row."
+    },
+    {
+      "id": "CAL-PRECESSION-DRIFT",
+      "place": "Cross-site",
+      "culture": "comparative",
+      "cycle_name": "Precessional alignment correction",
+      "calendar_type": "long-cycle-correction",
+      "period": {
+        "value": 71.6,
+        "unit": "year-per-degree",
+        "kind": "angular-drift-rate"
+      },
+      "observable": ["alignment angle", "epoch difference"],
+      "method": "Delta A = t / 71.6 as currently documented",
+      "geometry": ["angular drift", "epoch correction"],
+      "uncertainty": {
+        "status": "UNDERSERVED",
+        "note": "Approximation domain, reference epoch and propagated angular uncertainty are not yet canonical."
+      },
+      "evidence_state": "PARTIAL",
+      "attention_state": "UNDERSERVED",
+      "source_refs": [
+        "rafaelmeloreisnovo/GEOMETRIA_SOLAR_Maia_Inca:README.md"
+      ],
+      "notes": "This is a correction-rate node, not evidence that every site encoded precession."
+    },
+    {
+      "id": "CAL-AMAZONIA-CANDIDATE",
+      "place": "Amazonia",
+      "culture": "TOKEN_VAZIO",
+      "cycle_name": "Candidate solar, lunar, river or agricultural cycles",
+      "calendar_type": "candidate-multicycle",
+      "period": null,
+      "observable": ["TOKEN_VAZIO"],
+      "method": "TOKEN_VAZIO",
+      "geometry": ["TOKEN_VAZIO"],
+      "uncertainty": {
+        "status": "TOKEN_VAZIO",
+        "note": "No sourced measurement is registered in the current matrix."
+      },
+      "evidence_state": "TOKEN_VAZIO",
+      "attention_state": "LATENT",
+      "source_refs": ["TOKEN_VAZIO"],
+      "notes": "Research-scope placeholder only."
+    },
+    {
+      "id": "CAL-EGYPT-CANDIDATE",
+      "place": "Egypt",
+      "culture": "TOKEN_VAZIO",
+      "cycle_name": "Candidate solar, stellar or civil calendar records",
+      "calendar_type": "candidate-multicycle",
+      "period": null,
+      "observable": ["TOKEN_VAZIO"],
+      "method": "TOKEN_VAZIO",
+      "geometry": ["TOKEN_VAZIO"],
+      "uncertainty": {
+        "status": "TOKEN_VAZIO",
+        "note": "No sourced measurement is registered in the current matrix."
+      },
+      "evidence_state": "TOKEN_VAZIO",
+      "attention_state": "LATENT",
+      "source_refs": ["TOKEN_VAZIO"],
+      "notes": "Research-scope placeholder only."
+    },
+    {
+      "id": "CAL-MESOPOTAMIA-CANDIDATE",
+      "place": "Mesopotamia",
+      "culture": "TOKEN_VAZIO",
+      "cycle_name": "Candidate lunar, lunisolar or civil calendar records",
+      "calendar_type": "candidate-multicycle",
+      "period": null,
+      "observable": ["TOKEN_VAZIO"],
+      "method": "TOKEN_VAZIO",
+      "geometry": ["TOKEN_VAZIO"],
+      "uncertainty": {
+        "status": "TOKEN_VAZIO",
+        "note": "No sourced measurement is registered in the current matrix."
+      },
+      "evidence_state": "TOKEN_VAZIO",
+      "attention_state": "LATENT",
+      "source_refs": ["TOKEN_VAZIO"],
+      "notes": "Research-scope placeholder only."
+    },
+    {
+      "id": "CAL-POLYNESIA-CANDIDATE",
+      "place": "Polynesia and Pacific",
+      "culture": "TOKEN_VAZIO",
+      "cycle_name": "Candidate stellar, lunar, tidal or navigation cycles",
+      "calendar_type": "candidate-multicycle",
+      "period": null,
+      "observable": ["TOKEN_VAZIO"],
+      "method": "TOKEN_VAZIO",
+      "geometry": ["TOKEN_VAZIO"],
+      "uncertainty": {
+        "status": "TOKEN_VAZIO",
+        "note": "No sourced measurement is registered in the current matrix."
+      },
+      "evidence_state": "TOKEN_VAZIO",
+      "attention_state": "LATENT",
+      "source_refs": ["TOKEN_VAZIO"],
+      "notes": "Research-scope placeholder only."
+    },
+    {
+      "id": "CAL-ICELAND-NORTH-ATLANTIC-CANDIDATE",
+      "place": "Iceland and North Atlantic",
+      "culture": "TOKEN_VAZIO",
+      "cycle_name": "Candidate solar, seasonal, auroral or navigation records",
+      "calendar_type": "candidate-multicycle",
+      "period": null,
+      "observable": ["TOKEN_VAZIO"],
+      "method": "TOKEN_VAZIO",
+      "geometry": ["TOKEN_VAZIO"],
+      "uncertainty": {
+        "status": "TOKEN_VAZIO",
+        "note": "No sourced measurement is registered in the current matrix."
+      },
+      "evidence_state": "TOKEN_VAZIO",
+      "attention_state": "LATENT",
+      "source_refs": ["TOKEN_VAZIO"],
+      "notes": "Research-scope placeholder only; auroral association is not asserted."
+    },
+    {
+      "id": "CAL-FLORIANOPOLIS-SOUTH-BRAZIL-CANDIDATE",
+      "place": "Florianopolis and South Brazil",
+      "culture": "TOKEN_VAZIO",
+      "cycle_name": "Candidate solar, lunar, tidal, archaeological or seasonal records",
+      "calendar_type": "candidate-multicycle",
+      "period": null,
+      "observable": ["TOKEN_VAZIO"],
+      "method": "TOKEN_VAZIO",
+      "geometry": ["TOKEN_VAZIO"],
+      "uncertainty": {
+        "status": "TOKEN_VAZIO",
+        "note": "No sourced measurement is registered in the current matrix."
+      },
+      "evidence_state": "TOKEN_VAZIO",
+      "attention_state": "LATENT",
+      "source_refs": ["TOKEN_VAZIO"],
+      "notes": "Research-scope placeholder only."
+    }
+  ],
+  "relations": [
+    {
+      "source": "CAL-MAYA-TZOLKIN-260",
+      "relation": "COEXISTS_IN_CORPUS",
+      "target": "CAL-MAYA-VENUS-5X8",
+      "evidence_state": "VERIFIED",
+      "method": "Both are documented in the same repository overview; no causal equivalence is asserted."
+    },
+    {
+      "source": "CAL-INCA-SOLAR-ALIGNMENT",
+      "relation": "REQUIRES_UNCERTAINTY",
+      "target": "CAL-PRECESSION-DRIFT",
+      "evidence_state": "PARTIAL",
+      "method": "Long-term alignment comparison requires epoch and angular uncertainty."
+    },
+    {
+      "source": "CAL-MAYA-TZOLKIN-260",
+      "relation": "CONTRASTS",
+      "target": "CAL-INCA-SOLAR-ALIGNMENT",
+      "evidence_state": "VERIFIED",
+      "method": "One record is a counted cycle and the other is an architectural solar-measurement class."
+    },
+    {
+      "source": "CAL-AMAZONIA-CANDIDATE",
+      "relation": "REQUIRES_SOURCE",
+      "target": "CAL-INCA-SOLAR-ALIGNMENT",
+      "evidence_state": "TOKEN_VAZIO",
+      "method": "No comparison is allowed until a sourced Amazonian record exists."
+    },
+    {
+      "source": "CAL-EGYPT-CANDIDATE",
+      "relation": "REQUIRES_SOURCE",
+      "target": "CAL-MAYA-TZOLKIN-260",
+      "evidence_state": "TOKEN_VAZIO",
+      "method": "Candidate cross-place comparison only."
+    },
+    {
+      "source": "CAL-MESOPOTAMIA-CANDIDATE",
+      "relation": "REQUIRES_SOURCE",
+      "target": "CAL-MAYA-TZOLKIN-260",
+      "evidence_state": "TOKEN_VAZIO",
+      "method": "Candidate cross-place comparison only."
+    },
+    {
+      "source": "CAL-POLYNESIA-CANDIDATE",
+      "relation": "REQUIRES_SOURCE",
+      "target": "CAL-INCA-SOLAR-ALIGNMENT",
+      "evidence_state": "TOKEN_VAZIO",
+      "method": "Candidate cross-place comparison only."
+    },
+    {
+      "source": "CAL-ICELAND-NORTH-ATLANTIC-CANDIDATE",
+      "relation": "REQUIRES_SOURCE",
+      "target": "CAL-PRECESSION-DRIFT",
+      "evidence_state": "TOKEN_VAZIO",
+      "method": "Candidate high-latitude comparison only."
+    },
+    {
+      "source": "CAL-FLORIANOPOLIS-SOUTH-BRAZIL-CANDIDATE",
+      "relation": "REQUIRES_SOURCE",
+      "target": "CAL-INCA-SOLAR-ALIGNMENT",
+      "evidence_state": "TOKEN_VAZIO",
+      "method": "Candidate southern-latitude comparison only."
+    }
+  ]
+}
