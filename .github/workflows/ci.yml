@@ -16,12 +16,65 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install markdownlint
         run: npm install -g markdownlint-cli2
 
-      - name: Lint Markdown
-        run: markdownlint-cli2 "**/*.md" "#node_modules"
+      - name: Select changed Markdown files
+        id: markdown
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            base="$PR_BASE_SHA"
+            head="$PR_HEAD_SHA"
+          else
+            base="$PUSH_BEFORE_SHA"
+            head="$CURRENT_SHA"
+            if [[ -z "$base" || "$base" =~ ^0+$ ]]; then
+              base="$(git rev-list --max-parents=0 HEAD | tail -n 1)"
+            fi
+          fi
+
+          git diff --name-only --diff-filter=ACMR -z \
+            "$base" "$head" -- '*.md' > /tmp/changed-markdown.z
+
+          count="$(python3 - <<'PY'
+          from pathlib import Path
+
+          data = Path('/tmp/changed-markdown.z').read_bytes()
+          print(sum(1 for item in data.split(b'\0') if item))
+          PY
+          )"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Changed Markdown files: $count"
+          tr '\0' '\n' < /tmp/changed-markdown.z
+
+      - name: Lint changed Markdown
+        if: steps.markdown.outputs.count != '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' files < /tmp/changed-markdown.z
+          markdownlint-cli2 "${files[@]}"
+
+      - name: Validate calendar matrix contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f scripts/validate_calendar_matrix.py ]]; then
+            python3 -m py_compile scripts/validate_calendar_matrix.py
+            python3 scripts/validate_calendar_matrix.py --check
+          fi
 
       - name: Check required root files
         run: |
