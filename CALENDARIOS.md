@@ -1,5 +1,7 @@
 # CALENDARIOS — Floresta Relacional de Tempo, Lugar e Evidência
 
+<!-- markdownlint-disable MD013 MD060 -->
+
 ## Intenção
 
 Este núcleo transforma o repositório de geometria solar Maia/Inca em uma base extensível para calendários de vários lugares, sem afirmar que culturas distintas registraram o mesmo mecanismo.
