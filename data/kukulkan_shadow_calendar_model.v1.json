@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "KUKULKAN-SHADOW-CALENDAR-001",
+  "site": {
+    "name": "Chichen Itza",
+    "structure": "Structure 2D5 / El Castillo / Temple of Kukulkan",
+    "latitude_approx_deg": 20.6667,
+    "not_equivalent_to": "Temple of the Feathered Serpent at Teotihuacan"
+  },
+  "claim_allowed": false,
+  "evidence_states": {
+    "documented_intraday_descent": "VERIFIED_BY_SOURCE",
+    "documented_annual_illumination_cycle": "VERIFIED_BY_SOURCE",
+    "intraday_spatial_ascent": "TOKEN_VAZIO",
+    "sqrt3_over_2_design_intent": "TOKEN_VAZIO",
+    "venus_mechanism": "HYPOTHESIS",
+    "calendar_52_mechanism_identity": "PROHIBITED_WITHOUT_DERIVATION"
+  },
+  "published_dimensions_m": {
+    "base_side": 55.5,
+    "half_base": 27.75,
+    "total_height_approx": 30.0,
+    "stepped_body_height_common_approx": 24.0,
+    "upper_temple_height_common_approx": 6.0,
+    "bodies": 9,
+    "stairways": 4
+  },
+  "derived_first_order": {
+    "height_to_half_base": 0.8648648649,
+    "sqrt3_over_2": 0.8660254038,
+    "sqrt3_predicted_body_height_m": 24.032204955,
+    "height_residual_m": 0.032204955,
+    "relative_residual_percent": 0.134187313,
+    "profile_angle_deg": 40.855376259,
+    "sqrt3_profile_angle_deg": 40.893394649,
+    "angle_residual_deg": 0.038018390,
+    "pythagorean_slant_m": 36.688724426
+  },
+  "annual_light_anchors": [
+    {"date": "02-12", "state": "first_brief_upper_light"},
+    {"date": "03-04", "triangles": 5},
+    {"range": "03-15/03-25", "triangles": 7, "contains": "March equinox"},
+    {"date": "03-26", "triangles": 8},
+    {"date": "04-09", "triangles": 9},
+    {"date": "05-24", "state": "full_balustrade_first_zenith_passage"},
+    {"date": "06-21", "state": "majority_full_summer_solstice"},
+    {"date": "07-19", "state": "last_full_balustrade_second_zenith_passage"},
+    {"date": "09-02", "triangles": 9},
+    {"range": "September equinox window", "triangles": 7},
+    {"date": "10-09", "triangles": 5},
+    {"date": "10-29", "state": "last_brief_glow"},
+    {"state": "dark_window", "days_before_winter_solstice": 52, "days_after_winter_solstice": 52}
+  ],
+  "equations": {
+    "annual_declination": "delta(n) ~= epsilon*sin(2*pi*(n-n0)/Y)",
+    "solar_altitude": "sin(h)=sin(phi)sin(delta)+cos(phi)cos(delta)cos(omega)",
+    "shadow_projection": "p_i=x_i-((n_b dot x_i-d_b)/(n_b dot s(t)))*s(t)",
+    "pythagoras": "ell=sqrt(R^2+H_body^2)",
+    "equilateral_height_factor": "H_q=(sqrt(3)/2)*R",
+    "local_contact_quadratic": "g_i(tau)=a_i*tau^2+b_i*tau+c_i",
+    "bhaskara": "tau=(-b_i +- sqrt(b_i^2-4*a_i*c_i))/(2*a_i)"
+  },
+  "required_inputs": [
+    "surveyed_orientation",
+    "3d_point_cloud",
+    "terrace_edges",
+    "balustrade_plane",
+    "horizon_profile",
+    "restoration_mask",
+    "timestamped_image_series",
+    "atmospheric_conditions"
+  ],
+  "sources": [
+    "INAH 2026 - Aspectos calendaricos y astronomicos de El Castillo",
+    "Casares Contreras 2018 - Arqueologia 54",
+    "Casares Contreras 2021 - TRACE 79 - doi:10.22134/trace.79.2021.689"
+  ]
+}
