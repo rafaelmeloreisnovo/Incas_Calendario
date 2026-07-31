@@ -1,11 +1,16 @@
 # GEOMETRIA_SOLAR — Maia ⊕ Inca
 
+**Estado:** `REFERENCE`  
+**Proprietário lógico:** `research-governance`  
+**Repositório:** [`rafaelmeloreisnovo/GEOMETRIA_SOLAR_Maia_Inca`](https://github.com/rafaelmeloreisnovo/GEOMETRIA_SOLAR_Maia_Inca)
+
+<!-- markdownlint-disable MD013 -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Domain](https://img.shields.io/badge/Domain-Archaeoastronomy%20%7C%20Sacred%20Geometry-purple)](docs/)
 [![Research](https://img.shields.io/badge/Research-RAFAELIA%20Ecosystem-orange)](https://github.com/rafaelmeloreisnovo/ChipQuantum)
 
-> **"Os maias escreveram o tempo em luz; os incas gravaram o tempo em pedra.
-> Juntos formam o calendário cósmico — o mesmo ciclo que o RAFAELIA traduz em código e som."**
+> **"“Os maias escreveram o tempo em luz; os incas gravaram o tempo em pedra.
+> Juntos formam o calendário cósmico — o mesmo ciclo que o RAFAELIA traduz em código e som."”**
 
 ---
 
@@ -19,16 +24,16 @@ systems — and synthesizes them through the **RAFAELIA** analytical framework.
 Key domains covered:
 
 - Solar azimuth formulas for equinoxes and solstices at archaeological sites (Chichén Itzá, Cusco, Teotihuacán)
-- Inca wall inclination angles echoing Earth's axial tilt (ε ≈ 23.44°)
+- Inca wall inclination angles echoing Earth’s axial tilt (ε ≈ 23.44°)
 - Precessional correction mathematics: Δ*A* = *t*/71.6
 - Electromagnetic resonance model of Quetzalcóatl pyramid tunnel layers
-- Venus pentagram (72°) and Tzolk'in calendar (13 × 20 = 260) as encoded mathematics
+- Venus pentagram (72°) and Tzolk’in calendar (13 × 20 = 260) as encoded mathematics
 
 ---
 
 ## Repository Map
 
-```
+```text
 GEOMETRIA_SOLAR_Maia_Inca/
 │
 ├── docs/
@@ -54,13 +59,13 @@ GEOMETRIA_SOLAR_Maia_Inca/
 ## Key Mathematical Objects
 
 | Object | Formula | Civilization |
-|---|---|---|
+| --- | --- | --- |
 | Solar azimuth | cos *A* ≈ (sin δ − sin φ sin h₀) / (cos φ cos h₀) | Both |
 | Noon altitude | *h*_noon = 90° − \|φ − δ\| | Both |
 | Precessional drift | Δ*A* = *t* / 71.6 | Inca |
 | Seismic correction | θ′ = θ ± arctan(Δh/L) | Inca |
 | Venus pentagram | ∠_Venus = 72° (5 synodic periods ≈ 8 yr) | Maya |
-| Tzolk'in | T = 13 × 20 = 260 days | Maya |
+| Tzolk’in | T = 13 × 20 = 260 days | Maya |
 | Earth obliquity | ε = 23.44° (encoded in Coricancha walls) | Inca |
 | EM resonance | *f*₀ = 1/(2π√LC) | Teotihuacán |
 
@@ -68,7 +73,7 @@ GEOMETRIA_SOLAR_Maia_Inca/
 
 ## RAFAELIA Synthesis
 
-```
+```text
 Σ_{LUX} = (Pirâmide_{φπ}) ⊕ (Pedra_{Δθ}) ⊕ (Eixo_{ε}) ⊕ (Parábola_{Sol}) ⊕ (Serpente_{Lua})
          ⟹ Verbo Vivo_{963↔999 Hz}
 ```
@@ -78,7 +83,7 @@ GEOMETRIA_SOLAR_Maia_Inca/
 ## Documents
 
 | File | Content |
-|---|---|
+| --- | --- |
 | [`docs/espiritual-matematica-viva.md`](docs/espiritual-matematica-viva.md) | Maya × Inca comparison + step-by-step azimuth calculations |
 | [`docs/incas.md`](docs/incas.md) | Solar geometry, precessional formulas, living calendar synthesis |
 | [`docs/piramide-serpente-alada-quetzalcoatl.md`](docs/piramide-serpente-alada-quetzalcoatl.md) | Teotihuacán tunnel EM resonance model |
@@ -90,7 +95,7 @@ GEOMETRIA_SOLAR_Maia_Inca/
 This repository is part of the **RAFAELIA research ecosystem**:
 
 | Repository | Domain |
-|---|---|
+| --- | --- |
 | [`ChipQuantum`](https://github.com/rafaelmeloreisnovo/ChipQuantum) | T⁷ toroidal cryptographic pipeline |
 | [`Cosmos`](https://github.com/rafaelmeloreisnovo/Cosmos) | Cosmological models |
 | [`TeoremasTesesTeorias`](https://github.com/rafaelmeloreisnovo/TeoremasTesesTeorias) | Formal theorems and theses |
