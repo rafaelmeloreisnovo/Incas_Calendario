@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-08-25",
+  "status": "APPEND_ONLY_EXTENSION",
+  "claim_allowed": false,
+  "parent": "data/calendar_cycles_matrix.json",
+  "invariants": [
+    "CALENDAR_CYCLE != PHYSICAL_CAUSE",
+    "PHASE_ALIGNMENT != CAUSALITY",
+    "TZOLKIN_260 != SOLAR_ROTATION_27D",
+    "CALENDAR_ROUND_18980D != AURORA_52Y_PERIODICITY"
+  ],
+  "records": [
+    {
+      "id": "CAL-MAYA-TZOLKIN-260-EXT",
+      "period_days": 260.0,
+      "structure": "13x20",
+      "kind": "ritual-count",
+      "role": "calendar_phase",
+      "evidence_state": "VERIFIED",
+      "source": "Smithsonian NMAI Living Maya Time"
+    },
+    {
+      "id": "CAL-MAYA-HAAB-365",
+      "period_days": 365.0,
+      "kind": "solar-civil-count",
+      "role": "calendar_phase",
+      "evidence_state": "VERIFIED",
+      "source": "Smithsonian NMAI Living Maya Time"
+    },
+    {
+      "id": "CAL-MAYA-CALENDAR-ROUND-18980",
+      "period_days": 18980.0,
+      "period_haab": 52,
+      "period_tzolkin": 73,
+      "period_tropical_years_using_365_2422d": 51.9655177,
+      "difference_from_52_tropical_years_days": 12.5944,
+      "kind": "calendar-round",
+      "role": "long_phase_feature",
+      "evidence_state": "VERIFIED_ARITHMETIC",
+      "source": "Smithsonian NMAI Living Maya Time"
+    },
+    {
+      "id": "ASTRO-LUNAR-SYNODIC",
+      "period_days": 29.53059,
+      "kind": "astronomical",
+      "role": "physical_clock",
+      "evidence_state": "VERIFIED_CONTEXT",
+      "source": "NASA Moon/Tides"
+    },
+    {
+      "id": "ASTRO-LUNAR-SPRING-NEAP",
+      "period_days": 14.765295,
+      "kind": "tidal-envelope",
+      "role": "physical_clock",
+      "evidence_state": "VERIFIED_CONTEXT",
+      "source": "NASA Moon/Tides"
+    },
+    {
+      "id": "ASTRO-LUNAR-NODAL",
+      "period_years": 18.61,
+      "kind": "lunar-node",
+      "role": "long_tidal_covariate",
+      "evidence_state": "EVIDENCE_ROUTE",
+      "source": "astronomical/oceanographic literature"
+    },
+    {
+      "id": "HELIO-SOLAR-ROTATION-27D",
+      "period_days": 27.0,
+      "kind": "heliophysical-recurrence",
+      "role": "solar_wind_covariate",
+      "evidence_state": "VERIFIED_CONTEXT",
+      "source": "NASA heliophysics literature"
+    },
+    {
+      "id": "HELIO-SOLAR-HALF-ROTATION-13_5D",
+      "period_days": 13.5,
+      "kind": "heliophysical-harmonic",
+      "role": "solar_wind_covariate",
+      "evidence_state": "VERIFIED_CONTEXT",
+      "source": "NASA heliophysics literature"
+    },
+    {
+      "id": "GEO-SEMIANNUAL-EQUINOX",
+      "period_days": 182.6211,
+      "kind": "sun-earth-geomagnetic-geometry",
+      "role": "seasonal_covariate",
+      "evidence_state": "VERIFIED_MECHANISM_CONTEXT",
+      "source": "Russell-McPherron / NASA NTRS literature"
+    }
+  ],
+  "phase_encoding": {
+    "formula": "phase_P(t)=2*pi*(((t-t0) mod P)/P); features=[sin(phase_P),cos(phase_P)]",
+    "reason": "avoid discontinuity at cycle wrap"
+  },
+  "gates": {
+    "TZOLKIN_AURORA_CAUSALITY": "TOKEN_VAZIO",
+    "CALENDAR_ROUND_AURORA_52Y_PERIODICITY": "TOKEN_VAZIO_IDENTIFIABILITY",
+    "LUNAR_AURORA_DIRECT_CAUSALITY": "TOKEN_VAZIO"
+  }
+}
