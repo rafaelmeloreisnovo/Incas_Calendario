@@ -76,6 +76,13 @@ jobs:
             python3 scripts/validate_calendar_matrix.py --check
           fi
 
+      - name: Validate Calendar Round and cycle phase extension
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/cycle_phase_features.py
+          python3 scripts/cycle_phase_features.py --self-test
+
       - name: Check required root files
         run: |
           for f in README.md LICENSE CONTRIBUTING.md CHANGELOG.md CODE_OF_CONDUCT.md; do
