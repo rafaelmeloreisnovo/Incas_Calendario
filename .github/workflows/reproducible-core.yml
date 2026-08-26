@@ -1,0 +1,125 @@
+name: Reproducible Core Receipt
+
+on:
+  push:
+    branches:
+      - main
+      - audit/reproducible-core-v1-20260826
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reproducible-core-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reproducible-core:
+    name: Reproduce core + emit receipt
+    runs-on: ubuntu-24.04
+    container:
+      image: python:3.12.11-slim-bookworm@sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7
+
+    env:
+      REPRO_CONTAINER_IMAGE: python:3.12.11-slim-bookworm@sha256:519591d6871b7bc437060736b9f7456b8731f1499a57e22e6c285135ae657bf7
+      REPRO_CHECKOUT_SHA: 11d5960a326750d5838078e36cf38b85af677262
+      REPRO_UPLOAD_ARTIFACT_SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+      REPRO_RECEIPT_PATH: artifacts/reproducibility/receipt.json
+
+    steps:
+      - name: Checkout immutable action revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Validate calendar matrix contract
+        id: matrix
+        shell: sh
+        run: |
+          set -eu
+          python3 -m py_compile scripts/validate_calendar_matrix.py
+          python3 scripts/validate_calendar_matrix.py --check
+
+      - name: Validate cycle phase extension
+        id: phase
+        shell: sh
+        run: |
+          set -eu
+          python3 -m py_compile scripts/cycle_phase_features.py
+          python3 scripts/cycle_phase_features.py --self-test
+
+      - name: Validate required root files
+        id: root
+        shell: sh
+        run: |
+          set -eu
+          python3 - <<'PY'
+          from pathlib import Path
+
+          required = (
+              "README.md",
+              "LICENSE",
+              "CONTRIBUTING.md",
+              "CHANGELOG.md",
+              "CODE_OF_CONDUCT.md",
+          )
+          missing = [name for name in required if not Path(name).is_file()]
+          if missing:
+              raise SystemExit("missing required root files: " + ", ".join(missing))
+          print("PASS required_root_files")
+          PY
+
+      - name: Validate docs directory
+        id: docs
+        shell: sh
+        run: |
+          set -eu
+          python3 - <<'PY'
+          from pathlib import Path
+
+          docs = Path("docs")
+          files = sorted(p.name for p in docs.glob("*.md")) if docs.is_dir() else []
+          if not files:
+              raise SystemExit("docs directory missing or contains no Markdown files")
+          print(f"PASS docs_directory files={len(files)}")
+          PY
+
+      - name: Emit machine-readable receipt
+        id: receipt
+        if: ${{ always() }}
+        shell: sh
+        env:
+          GATE_MATRIX_OUTCOME: ${{ steps.matrix.outcome }}
+          GATE_PHASE_OUTCOME: ${{ steps.phase.outcome }}
+          GATE_ROOT_OUTCOME: ${{ steps.root.outcome }}
+          GATE_DOCS_OUTCOME: ${{ steps.docs.outcome }}
+        run: |
+          set -eu
+          python3 scripts/write_repro_receipt.py
+          python3 -m json.tool "$REPRO_RECEIPT_PATH" >/dev/null
+
+      - name: Upload immutable execution receipt
+        id: upload
+        if: ${{ always() && steps.receipt.outcome == 'success' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: reproducible-core-receipt-${{ github.sha }}-${{ github.run_attempt }}
+          path: artifacts/reproducibility/receipt.json
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 90
+
+      - name: Bind artifact digest to run summary
+        if: ${{ always() && steps.upload.outcome == 'success' }}
+        shell: sh
+        run: |
+          {
+            echo "### Reproducible core receipt"
+            echo "- head: \`${GITHUB_SHA}\`"
+            echo "- run: \`${GITHUB_RUN_ID}\` attempt \`${GITHUB_RUN_ATTEMPT}\`"
+            echo "- artifact digest: \`${{ steps.upload.outputs.artifact-digest }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
